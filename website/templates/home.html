@@ -4,4 +4,13 @@
 
 {% block content %}
 <h1>HOME PAGE</h1>
+<ul class="list-group" id = "activities">
+    {% for activity in user.activities %}
+    <li class="list-group-item">{{activity.activity_name}}</li>    
+    <li class="badge badge-primary badge-pill">{{activity.date}}</span>
+    {% endfor %}
+</ul>
+
+
+</form>
 {% endblock %}
