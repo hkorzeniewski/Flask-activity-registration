@@ -1,13 +1,34 @@
 {% extends "base.html" %}
 
-{% block title %}Changed{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block content %}
 <h1>HOME PAGE</h1>
+<h3 align = "center">Different activities</h3>
 <ul class="list-group" id = "activities">
     {% for activity in user.activities %}
-    <li class="list-group-item">{{activity.activity_name}}</li>    
-    <li class="badge badge-primary badge-pill">{{activity.date}}</span>
+    <li class="list-group-item" >{{activity.activity_name}}
+        <form method="POST" action="{{ url_for('views.delete_activity', id=activity.id) }}"> 
+            
+            <button type="submit" class="close">
+        <span aria-hidden="true">&times;</span></form>
+        
+    </li>   
+    <li class="badge badge-primary badge-pill" >{{activity.date}}</span>
+    {% endfor %}
+</ul>
+
+<ul class="list-group" id = "cardios">
+    <h3 align = "center">Cardios</h3>
+    {% for cardio in user.cardios %}
+    <li class="list-group-item" >{{cardio.cardio_name}}
+        <form method="POST" action="{{ url_for('views.delete_cardio', id=cardio.id) }}">       
+        <button type="submit" class="close">
+            <span aria-hidden="true">&times;</span>
+        </button></form>
+    
+    </li>  
+    <li class="badge badge-secondary badge-pill">{{cardio.date}}</span>
     {% endfor %}
 </ul>
 

@@ -1,17 +1,19 @@
 {% extends "base.html" %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Activity{% endblock %}
 
 {% block content %}
+<h3 align="center">Different activity</h3>
 <form method="POST">
-    <h3 align="center">Login</h3>
+    
     <div class="form-group">
-        <label for="name">Name</label>
-        <input type="name" class="form-control" id="name" name="name" placeholder="Enter name">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
-        
+        <label for="activity_name">Name</label>
+        <input type="activity_name" class="form-control" id="activity_name" name="activity_name" placeholder="Enter name">
+        <label for="duration">Duration</label>
+        <input type="duration" class="form-control" id="duration" name="duration" placeholder="Enter duration">
+        <label for="description">Description</label>
+        <textarea name="description" id="description" class="form-control"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Login</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 {% endblock %}
