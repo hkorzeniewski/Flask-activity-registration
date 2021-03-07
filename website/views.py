@@ -73,3 +73,8 @@ def delete_cardio(id):
     db.session.delete(cardio_delete)
     db.session.commit()
     return redirect('/')
+
+@views.route('/activity/<int:id>')
+def detail_activity(id):
+    activity_detail = Activity.query.get(id)
+    return render_template("activity-detail.html", user=current_user, activity=activity_detail)

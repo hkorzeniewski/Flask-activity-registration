@@ -4,17 +4,22 @@
 
 {% block content %}
 <h1>HOME PAGE</h1>
+<h1>Hi, {{user.name}}</h1>
 <h3 align = "center">Different activities</h3>
-<ul class="list-group" id = "activities">
+    <ul class="list-group" id = "activities" ></ul>
     {% for activity in user.activities %}
-    <li class="list-group-item" >{{activity.activity_name}}
-        <form method="POST" action="{{ url_for('views.delete_activity', id=activity.id) }}"> 
-            
-            <button type="submit" class="close">
-        <span aria-hidden="true">&times;</span></form>
+
+    <li class="list-group-item" ><h4>{{activity.activity_name}} <span class="badge badge-primary badge-pill float-right" >{{activity.date}}</span></h4>
+       
+        <form method="POST" action="{{ url_for('views.delete_activity', id=activity.id) }}">          
+            <button type="submit" class="btn btn-danger float-right text-center">Delete</button>
+        </form>
+
+        <div class="d-flex justify-content-end">
+        <a class="btn btn-primary  float-center" href= 'activity/{{activity.id}}'>Details </a>
+         </div>
         
-    </li>   
-    <li class="badge badge-primary badge-pill" >{{activity.date}}</span>
+    </li> 
     {% endfor %}
 </ul>
 
@@ -28,7 +33,7 @@
         </button></form>
     
     </li>  
-    <li class="badge badge-secondary badge-pill">{{cardio.date}}</span>
+    <li class="badge badge-secondary badge-pill">{{cardio.date}}</li>
     {% endfor %}
 </ul>
 
