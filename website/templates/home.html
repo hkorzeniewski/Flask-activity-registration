@@ -23,20 +23,25 @@
     {% endfor %}
 </ul>
 
-<ul class="list-group" id = "cardios">
-    <h3 align = "center">Cardios</h3>
+
+<h3 align = "center">Cardios</h3>
+    <ul class="list-group" id = "cardios">
+
     {% for cardio in user.cardios %}
-    <li class="list-group-item" >{{cardio.cardio_name}}
+    <li class="list-group-item" ><h4>{{cardio.cardio_name}} 
+        <span class="badge badge-secondary badge-pill float-right">{{cardio.date}}</span></h4>
+        
         <form method="POST" action="{{ url_for('views.delete_cardio', id=cardio.id) }}">       
-        <button type="submit" class="close">
-            <span aria-hidden="true">&times;</span>
-        </button></form>
-    
+            <button type="submit" class="btn btn-danger float-right text-center">Delete</button>
+        </form>
+        <div class="d-flex justify-content-end">
+            <a class="btn btn-primary  float-center" href= 'cardio/{{cardio.id}}'>Details </a>
+        </div>
     </li>  
-    <li class="badge badge-secondary badge-pill">{{cardio.date}}</li>
+   
+    
     {% endfor %}
 </ul>
 
 
-</form>
 {% endblock %}

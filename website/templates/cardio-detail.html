@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %} Details{% endblock %}
+
+{% block content %}
+    <h1>Activity name: {{activity.activity_name}}</h1>
+    <h2>Duration: {{activity.duration}}</h2>
+    <h2>Date: {{activity.date}}</h2>
+    <a class="btn btn-primary " href= '/'>Back </a>
+{% endblock %}

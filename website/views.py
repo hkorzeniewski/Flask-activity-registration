@@ -78,3 +78,8 @@ def delete_cardio(id):
 def detail_activity(id):
     activity_detail = Activity.query.get(id)
     return render_template("activity-detail.html", user=current_user, activity=activity_detail)
+
+@views.route('/cardio/<int:id>')
+def detail_cardio(id):
+    cardio_detail = Cardio.query.get(id)
+    return render_template("cardio-detail.html", user=current_user, cardio=cardio_detail)
